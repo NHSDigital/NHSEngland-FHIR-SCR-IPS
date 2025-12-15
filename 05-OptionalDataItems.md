@@ -100,7 +100,7 @@ Any active alerts held against the patient. This could include items explicitly 
 
 **Example:**
 
-* Examples to be added
+* Examples might include risk to self, risk to others, large dogs at the property etc. and any other flags related to safety held on the sending system
 
 ## History of Past Problems
 
