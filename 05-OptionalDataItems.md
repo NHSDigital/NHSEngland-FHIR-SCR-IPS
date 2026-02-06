@@ -202,8 +202,7 @@ Future Encounters (e.g. Acute Waiting Lists), plus the last 6 months of previous
    * PRSB: CIS Admission details
    * Must have data items:
       * Date of admission
-      * Admitted to  - organisation code
-      * Admitted to - organisation free text
+      * Admitted to  - organisation name (and ODS code if available)
       * Specialty - activity treatment function code
       * Specialty - free text
       * Reason for admission - code
@@ -212,7 +211,7 @@ Future Encounters (e.g. Acute Waiting Lists), plus the last 6 months of previous
    * PRSB: CIS Discharge details
    * Must have data items:
       * Date of discharge
-      * Discharge location - ods code
+      * Discharge location - location name or description (and ODS code if available)
       * Discharging specialty - code
       * Discharging specialty - free text
       * Legal status on discharge
