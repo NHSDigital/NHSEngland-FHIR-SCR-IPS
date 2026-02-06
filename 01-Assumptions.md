@@ -15,5 +15,3 @@
 * Where data is structured, de-duplication should be handled by the consumer system (e.g. Shared care records or NCRS - when ready)
 
 * Where additional patient information is available from the Spine or other external shared records, there is no requirement for the Shared Care Record generating the summary to attempt to retrieve and incorporate this into the summary that is generated.
-
-* IPS documents will not include meta.profile attributes when sent over the wire. They may be included in examples in this guide to allow for validation and testing, but would not be included in IPS documents generated in live systems.
