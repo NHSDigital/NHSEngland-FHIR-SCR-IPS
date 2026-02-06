@@ -1,6 +1,8 @@
 # General Guidance
 
  * FHIR R4 will be used as the base FHIR version
+
+ * Prior to loading IPS pointers on the National Record Locator, all patient NHS Numbers MUST be traced against PDS. This also applies to updating and deleting pointers.
  
  * Wherever possible codes should be SNOMED, but for England International Patient Summaries, this will use codes from the full UK SNOMED release and **WILL NOT** be limited to the ["IPS Terminology"](https://www.snomed.org/international-patient-summary-terminology) subset created by SNOMED International for use in international summaries.
 
