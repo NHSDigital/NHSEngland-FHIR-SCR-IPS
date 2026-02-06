@@ -96,7 +96,7 @@ Any active alerts held against the patient. This could include items explicitly 
       * Safeguarding indicator
       * Safeguarding concerns date
       * Safeguarding concerns end date
- * Data Item: Pre-contact information, e.g. scene safety
+ * Data Item: Pre-contact information, e.g. scene safety, information about entry to property etc.
 
 **Example:**
 
