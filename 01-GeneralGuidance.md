@@ -6,6 +6,8 @@
  
  * Wherever possible codes should be SNOMED, but for England International Patient Summaries, this will use codes from the full UK SNOMED release and **WILL NOT** be limited to the ["IPS Terminology"](https://www.snomed.org/international-patient-summary-terminology) subset created by SNOMED International for use in international summaries.
 
+ * Where clinical data is coded in a system other then SNOMED, these codes can still be used in the coded data (with appropriate system element included). Where data is not coded, the [CodeableConcpet].text element should be used.
+
  * FHIR Resources included in the IPS bundle **SHOULD** conform to UK Core profiles as well as the relevant profiles within the International Patient Summary implementation guide.
 
 * The source Shared Care Record **MUST** return all relevant data from their ShCR, as per the agreed specification, regardless of potential duplication at the consumer end.
