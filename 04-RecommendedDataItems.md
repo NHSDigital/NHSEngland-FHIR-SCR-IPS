@@ -24,15 +24,15 @@ Example:
 This will be a combination of results that are included in a DiagnosticReport (e.g. Acute Pathology results), and some individual coded Observations that are not part of a report (e.g. results taken from the GP record)
 
 * Filters/Constraints
-   * Where possible, apply different time-ranges based on the type of result
-     * Biochemistry: Last 6 months
-     * Haematology: Last 6 months
-     * Immunology: Last 6 months
-     * Microbiology: Last 12 months
-     * Virology: Last 12 months
-     * Histology: Entire history
-     * Cytology: Entire history
-   * Otherwise (or for other types of result): Last 12 months
+   * Where possible, apply different time-ranges based on the type of result. Where a results type is not included below, follow the guidance on the [Limits on Data Returned](https://github.com/NHSDigital/NHSEngland-FHIR-SCR-IPS/blob/main/06-LimitsOnDataReturned.md) page.
+     * Biochemistry: Last 6 months or last 5 test results, whichever is the smallest
+     * Haematology: Last 6 months or last 5 test results, whichever is the smallest
+     * Immunology: Last 6 months or last 5 test results, whichever is the smallest
+     * Microbiology: Last 12 months or last 5 test results, whichever is the smallest
+     * Virology: Last 12 months or last 5 test results, whichever is the smallest
+     * Histology: Last 12 months or last 5 test results, whichever is the smallest
+     * Cytology: Last 12 months or last 5 test results, whichever is the smallest 
+   * Otherwise (or for other types of result): Last 5 results.
 * FHIR Resource Profiles to conform to:
    * [UKCore-Observation](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-Observation?version=2.0.1)
    * [UKCore-Observation-Lab](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-Observation-Lab?version=2.0.1)
