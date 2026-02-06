@@ -37,7 +37,8 @@ Items recorded as "problems" in local clinical systems (e.g. items on the proble
 Items recorded as Allergies or Intolerances in local clinical systems.
 
  * Filters/Constraints
-   * Include ALL where status="active"
+   * Include ALL where clincalStatus="active"
+   * Where known, include allergies and intolerances that have been resolved, or become inactive (AllergyIntolerance.clinicalStatus=inactive|resolved). These MUST have a date when the allergy or intolerance was recorded as inactive or resolved (AllergyIntolerance.recordedDate) and should have the last know recorded occurrence (AllergyIntolerance.lastOccurrence)
    * Items in the narrative should be sorted newest to oldest based on recorded date
  * FHIR Resource Profiles to conform to:
    * [UKCore-AllergyIntolerance](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-AllergyIntolerance?version=2.0.1)
