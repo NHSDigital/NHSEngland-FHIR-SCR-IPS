@@ -1,6 +1,6 @@
 # Including Provenance Information in IPS
 
-FHIR provides a machanism for recording provenance which is very rich, and if used in different ways in different FHIR implementations.
+FHIR provides a machanism for recording provenance which is very rich, and is used in different ways in different FHIR implementations.
 
 The international IPS implementation guide mentions that Provenance resources can be used, but does not mandate how or if these should be used, nor does it provide any profiles or example of the use of provenance resources in IPS bundles.
 
