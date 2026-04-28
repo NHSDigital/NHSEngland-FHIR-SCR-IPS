@@ -6,7 +6,7 @@ The international IPS implementation guide mentions that Provenance resources ca
 
 This page sets out some options for how provenance could be recorded in an IPS bundle - a decision will need to be made on the preferred approach to ensure implementers implement this consistently.
 
-A suggested approach could be to require option 1 below, but also allow implementers who are able to provide more in-depth provenance information to adopt option 4 in addition?
+A suggested approach could be to require option 2 below, but also allow implementers who are able to provide more in-depth provenance information to adopt option 4 in addition?
 
 ## Option 1 - Just document level provenance
 
