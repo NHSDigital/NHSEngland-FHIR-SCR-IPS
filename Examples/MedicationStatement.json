@@ -3,18 +3,33 @@
     "id": "be80ee95-5d08-4e61-8f65-237833b0dc2e",
     "contained": [
         {
-            "resourceType": "Medication",
-            "id": "med",
-            "code": {
+            "resourceType": "MedicationRequest",
+            "id": "MedReq1",
+            "medicationCodeableConcept": {
                 "coding": [
                     {
-                        "system": "http://snomed.info/sct",
+                        "system": "http://dmd.nhs.uk",
                         "code": "42109611000001109",
                         "display": "Paracetamol 500mg tablets"
                     }
                 ],
                 "text": "Paracetamol 500mg tablets"
-            }
+            },
+            "courseOfTherapyType": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy",
+                        "code": "acute",
+                        "display": "Short course (acute) therapy"
+                    }
+                ]
+            },
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "urn:uuid:92bf81ec-eed1-4105-ab1b-4e9ae84e4443"
+            },
+            "authoredOn": "2025-09-02"
         },
         {
             "resourceType": "Organization",
@@ -45,8 +60,20 @@
         ],
         "text": "Outpatient"
     },
-    "medicationReference": {
-        "reference": "#med"
+    "basedOn": [
+        {
+            "reference": "#MedReq1"
+        }
+    ],
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://dmd.nhs.uk",
+                "code": "42109611000001109",
+                "display": "Paracetamol 500mg tablets"
+            }
+        ],
+        "text": "Paracetamol 500mg tablets"
     },
     "subject": {
         "reference": "urn:uuid:92bf81ec-eed1-4105-ab1b-4e9ae84e4443"

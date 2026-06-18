@@ -63,7 +63,7 @@ Items recorded as Allergies or Intolerances in local clinical systems.
 ## Medication Summary
 *(this section is agreed)*
 
-Current medications being taken. This includes active prescribed medications, including repeat, one-off and acute meds and any meds recorded in other care settings if available.
+Current medications being taken. This includes active prescribed medications, including repeat, one-off and acute meds and any medications recorded in other care settings if available.
 
  * Filters/Constraints
    * Current repeat medications
@@ -71,17 +71,18 @@ Current medications being taken. This includes active prescribed medications, in
      * Discontinued repeat medications from the last 6 months
      * Acute Medications taken in the last year
    * Items in the narrative should be sorted newest to oldest based on recorded date
- * FHIR Resource Profiles to conform to:
+ * The [International IPS](https://build.fhir.org/ig/HL7/fhir-ips/en/Structure-of-the-International-Patient-Summary.html#medication-summary) says that medication summary may be documented as MedicationStatement or MedicationRequest. However, there is a need to distinguish between repeat medications and acute medications. This distinction is not available directly in a MedicationStatement. Therefore, if MedicationStatement is being used to document medication summary, a MedicationRequest should also be included (as a contained resource, with minimal details) to document the courseOfTherapyType and the last issued date (authoredOn).
+ FHIR Resource Profiles to conform to:
    * [UKCore-MedicationStatement](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-MedicationStatement?version=2.0.1)
+   * [UKCore-MedicationRequest](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-MedicationRequest?version=2.0.1)
    * [MedicationStatement (IPS)](http://hl7.org/fhir/uv/ips/StructureDefinition/MedicationStatement-uv-ips)
+   * [MedicationRequest (IPS)](http://hl7.org/fhir/uv/ips/StructureDefinition/MedicationRequest-uv-ips)   
 
-The details of the actual Medication will be in a FHIR Medication resource. This can either be contained within the MedicationStatement, or included separately in the bundle and referenced from the MedicationStatement.
+The details of the actual Medication by preference will be carried in the medicationCodeableConcept	element, and represented by a dm+d code. The correct system identifier for dm+d is http://dmd.nhs.uk. A linked Medication resource may be used instead of a medicationCodeableConcept.
 
  * FHIR Resource Profiles to conform to:
    * [UKCore-Medication](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-Medication?version=2.0.1)
    * [Medication (IPS)](http://hl7.org/fhir/uv/ips/StructureDefinition/Medication-uv-ips)
-
-NOTE: The UK Core profile specifies that the "derivedFrom" should be provided, which links the MedicationStatement to the MedicationRequest. For the purposes of a patient summary this is not required, so this relationship can be omitted.
 
 **Relevant items from NHSE Urgent Care Dataset**:
 
@@ -94,4 +95,16 @@ NOTE: The UK Core profile specifies that the "derivedFrom" should be provided, w
 **Example:**
 
 * [Example FHIR MedicationStatement](Examples/MedicationStatement.json)
+* [Example FHIR MedicationRequest](Examples/MedicationRequest.json)
 * [Example HTML Narrative](https://html-preview.github.io/?url=https://github.com/ahatherly-gn/NHS-SCR-IPS/blob/main/Examples/Narrative-Medications.html)
+
+**Notes on distinguishing acute & repeat medication**
+
+*Acute (single issue) Medication:*
+- A prescription has been issued with an end of medication period date set (MedicationStatement.effectivePeriod.end) but the end date for the medication period has not yet passed.
+- If a prescription has been issued within the last 2 years (MedicationStatement.effectiveDateTime or .effectivePeriod.start), but with no end date.
+*Repeat Medication:*
+- There is no end date set (MedicationStatement.effectivePeriod.end) for the medication period.
+- The medication period end date(MedicationStatement.effectivePeriod.end) is on or after the index date (e.g. today).
+
+And in all cases, the authorised date (MedicationStatement.effectiveDateTime or .effectivePeriod.start) or last issued date (MedicationStatement.extension:medicationStatementLastIssueDate) is within the last two years (whichever is later).
