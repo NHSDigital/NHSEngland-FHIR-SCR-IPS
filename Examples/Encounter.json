@@ -1,0 +1,112 @@
+{
+    "resourceType": "Encounter",
+    "id": "Encounter-InpatientEncounter-Example",
+    "extension": [
+        {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-DischargeMethod",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-DischargeMethodEngland",
+                        "code": "1",
+                        "display": "Patient discharged on clinical advice or with clinical consent"
+                    }
+                ]
+            }
+        }
+    ],
+    "identifier": [
+        {
+            "system": "https://tools.ietf.org/html/rfc4122",
+            "value": "6f40cebe-7b55-461d-9d7f-eadb4c065762"
+        }
+    ],
+    "status": "finished",
+    "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+    },
+    "type": [
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "185212007",
+                    "display": "Seen in hospital ward"
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "Patient/UKCore-Patient-RichardSmith-Example"
+    },
+    "participant": [
+        {
+            "type": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                            "code": "ATND",
+                            "display": "attender"
+                        }
+                    ]
+                }
+            ],
+            "individual": {
+                "reference": "Practitioner/UKCore-Practitioner-ConsultantSandraGose-Example"
+            }
+        }
+    ],
+    "period": {
+        "start": "2025-12-10T13:00:00+00:00",
+        "end": "2025-12-11T13:00:00+00:00"
+    },
+    "reasonCode": [
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "7922000",
+                    "display": "General treatment"
+                }
+            ]
+        }
+    ],
+    "hospitalization": {
+        "extension": [
+            {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AdmissionMethod",
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-AdmissionMethodEngland",
+                            "code": "13",
+                            "display": "Elective Admission: Planned"
+                        }
+                    ]
+                }
+            }
+        ],
+        "dischargeDisposition": {
+            "coding": [
+                {
+                    "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-DischargeDestinationEngland",
+                    "code": "19",
+                    "display": "Usual place of residence unless listed below, for example, a private dwelling whether owner occupied or owned by Local Authority, housing association or other landlord. This includes wardened accommodation but not residential accommodation where health care is provided. It also includes Patients with no fixed abode."
+                }
+            ]
+        }
+    },
+    "location": [
+        {
+            "location": {
+                "reference": "Location/UKCore-Location-CardiologySJUH-Example"
+            }
+        }
+    ],
+    "serviceProvider": {
+        "reference": "Organization/UKCore-Organization-LeedsTeachingHospital-Example"
+    }
+}
