@@ -1,0 +1,42 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "7d770ee9-8973-4d7c-af4a-2209753fd177",
+    "identifier": [
+        {
+            "system": "http://test-nhs-scr-ips.com/allergy",
+            "value": "71059e0b-f5bf-4edc-8426-be5c813d3232"
+        }
+    ],
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                "code": "active",
+                "display": "Active"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                "code": "confirmed",
+                "display": "Confirmed"
+            }
+        ]
+    },
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "716186003",
+                "display": "No known allergy"
+            }
+        ],
+        "text": "No known allergy"
+    },
+    "patient": {
+        "reference": "urn:uuid:92bf81ec-eed1-4105-ab1b-4e9ae84e4443"
+    },
+    "recordedDate": "2025-08-10T15:50:12.5321796+01:00"
+}

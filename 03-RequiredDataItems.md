@@ -44,6 +44,16 @@ Items recorded as Allergies or Intolerances in local clinical systems.
    * [UKCore-AllergyIntolerance](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-AllergyIntolerance?version=2.0.1)
    * [AllergyIntolerance (IPS)](http://hl7.org/fhir/uv/ips/StructureDefinition/AllergyIntolerance-uv-ips)
 
+**Where there are no Allergies or Intolerances to report**
+
+Three scenarios have been identified, that should be treated as follows
+   * The system generating this summary won't ever populate this section
+   In this scenario, the narrative section will be included (as it is a mandated section), and the Composition.section.emptyReason be populated with an "unavailable" code from the https://hl7.org/fhir/R4/valueset-list-empty-reason.html CodeSystem
+   * The system generating this summary does not have any data for this section 
+   In this scenario, the narrative section will be included (as it is a mandated section), and the Composition.section.emptyReason be populated with an "nilknown" code from the https://hl7.org/fhir/R4/valueset-list-empty-reason.html CodeSystem
+   * The system generating this summary believes there's no know allergies for this patient
+   In this secenrio, a coded entry should be created with the SNOMED concept No known allergy (situation) \| 716186003, and the narrative section should be populated to state that there are no known allergies for this patient
+   
 **Relevant items from NHSE Urgent Care Dataset**:
 
  * Data Item: Allergies
@@ -59,6 +69,7 @@ Items recorded as Allergies or Intolerances in local clinical systems.
 
 * [Example FHIR AllergyIntolerance](Examples/AllergyIntolerance.json)
 * [Example HTML Narrative](https://html-preview.github.io/?url=https://github.com/ahatherly-gn/NHS-SCR-IPS/blob/main/Examples/Narrative-Allergies.html)
+* [Example FHIR NoAllergyIntolerance](Examples/NoAllergyIntolerance.json)
 
 ## Medication Summary
 *(this section is agreed)*
