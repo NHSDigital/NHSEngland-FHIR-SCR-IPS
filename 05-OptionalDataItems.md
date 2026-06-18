@@ -188,13 +188,15 @@ Flag to indicate if the patient is known to social care
 
 ## Encounters
 
-Future Encounters (e.g. Acute Waiting Lists), plus the last 6 months of previous encounters
+Future appointments (e.g. Acute Waiting Lists), plus the last 6 months of previous encounters
 
 * Filters/Constraints
-   * Encounter records that have a start date greater than 6 months ago
-   * Items in the narrative should be sorted newest to oldest based on start date
+   * Encounter records that have a start date greater than 6 months ago, but are not future appointments should be represented as an Encounter
+   * Future appointments are represented as an Appointment
+   * Items in the narrative should be sorted newest to oldest based on start date & be split by past Encounters and Future Appointments
 * FHIR Resource Profiles to conform to:
    * [UKCore-Encounter](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-Encounter?version=2.0.1)
+   * [UKCore-Appointment](https://simplifier.net/guide/uk-core-implementation-guide-stu2/Home/ProfilesandExtensions/Profile-UKCore-Appointment?version=2.0.1)   
 
 **Relevant items from NHSE Urgent Care Dataset**:
 
@@ -219,8 +221,10 @@ Future Encounters (e.g. Acute Waiting Lists), plus the last 6 months of previous
       * Discharge destination - address -free text
 
 **Example:**
-
-* Examples to be added
+* Encounter
+	* [Encounter](Examples/Encounter.json)
+* Appointment
+	* [Appointment](Examples/Appointment.json)
 
 ## Legal information (PoA)
 

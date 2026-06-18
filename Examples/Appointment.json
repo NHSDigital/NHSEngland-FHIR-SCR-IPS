@@ -1,0 +1,128 @@
+{
+    "resourceType": "Appointment",
+    "id": "Appointment-OrthopaedicSurgery-Example",
+    "extension": [
+        {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BookingOrganization",
+            "valueReference": {
+                "reference": "Organization/UKCore-Organization-WhiteRoseMedicalCentre-Example",
+                "type": "Organization"
+            }
+        },
+        {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-DeliveryChannel",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-DeliveryChannel",
+                        "code": "In-person",
+                        "display": "In person"
+                    }
+                ]
+            }
+        }
+    ],
+    "identifier": [
+        {
+            "system": "https://tools.ietf.org/html/rfc4122",
+            "value": "e7c54d06-c5b5-4ecb-91c3-5c1e68d3b923"
+        }
+    ],
+    "status": "booked",
+    "serviceCategory": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/service-category",
+                    "code": "31",
+                    "display": "Specialist Surgical"
+                }
+            ]
+        }
+    ],
+    "serviceType": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/service-type",
+                    "code": "218",
+                    "display": "Orthopaedic Surgery"
+                }
+            ]
+        }
+    ],
+    "specialty": [
+        {
+            "coding": [
+                {
+                    "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                    "code": "110",
+                    "display": "Trauma and Orthopaedics"
+                }
+            ]
+        }
+    ],
+    "appointmentType": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+                "code": "FOLLOWUP",
+                "display": "A follow up visit from a previous appointment"
+            }
+        ]
+    },
+    "reasonReference": [
+        {
+            "reference": "Condition/UKCore-Condition-HipReplacement-Example",
+            "display": "Pain in both hips"
+        }
+    ],
+    "priority": 1,
+    "description": "Appointment to investigate the pain in both hips",
+    "start": "2022-03-11T10:46:00+00:00",
+    "end": "2022-03-11T13:20:00+00:00",
+    "created": "2022-02-14",
+    "comment": "Further expand on the results of the X-ray and determine the next actions that may be appropriate.",
+    "patientInstruction": "Please do not eat anything for 1 hour prior to the appointment.",
+    "basedOn": [
+        {
+            "reference": "ServiceRequest/UKCore-ServiceRequest-HipReplacement-Example"
+        }
+    ],
+    "participant": [
+        {
+            "actor": {
+                "reference": "Patient/UKCore-Patient-RichardSmith-Example",
+                "display": "Richard Smith"
+            },
+            "required": "required",
+            "status": "accepted"
+        },
+        {
+            "type": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                            "code": "ATND"
+                        }
+                    ]
+                }
+            ],
+            "actor": {
+                "reference": "Practitioner/UKCore-Practitioner-ConsultantSandraGose-Example",
+                "display": "Dr Sandra Gose"
+            },
+            "required": "required",
+            "status": "accepted"
+        },
+        {
+            "actor": {
+                "reference": "Location/UKCore-Location-HospitalSJUH-Example",
+                "display": "Orthopaedic Trauma Department, St James' University Hospital, Leeds"
+            },
+            "required": "required",
+            "status": "accepted"
+        }
+    ]
+}
