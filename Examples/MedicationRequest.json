@@ -10,6 +10,12 @@
             }
         ]
     },
+    "extension": [
+        {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-MedicationStatementLastIssueDate",
+            "valueDateTime": "2025-12-05"
+        }
+    ],		
     "status": "active",
     "intent": "order",
     "category": [
